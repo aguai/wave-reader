@@ -1,4 +1,4 @@
-// ²ýÎ¬[867597730@qq.com] 2017-06-10 17:19:23
+// æ˜Œç»´[867597730@qq.com] 2017-06-10 17:19:23
 // https://github.com/cw1997 https://zhuanlan.zhihu.com/codes
 
 #include <stdio.h>
@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include "wave.h"
 
-int main()
+int main(int argc, char* argv[])
 {
 	FILE *fp = NULL;
 	
@@ -15,7 +15,7 @@ int main()
     FMT_t fmt;
     Data_t data;
 
-    fp = fopen("test.wav", "rb");
+    fp = fopen(argv[1], "rb");
     if (!fp) {
         printf("can't open audio file\n");
         exit(1);
