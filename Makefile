@@ -1,7 +1,7 @@
 CC = clang         
 CFLAGS = -O3 		
 INC = -I src
-LIB = -L src/lib       
+# LIB = -L src/lib       
        
 all: 
 #	${CC} src/wavereader.c ${CFLAGS} ${INC} ${LIB} -o build/wavereader
