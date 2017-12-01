@@ -6,4 +6,4 @@ LIB = -L src/lib
 all: 
 	${CC} src/wavereader.c ${CFLAGS} ${INC} ${LIB} -o build/wavereader
 clean:                             
-	@rm -rf src/*.o  build/*
+	@rm -rf src/*.o  build/wavereader
