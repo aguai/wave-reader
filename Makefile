@@ -1,6 +1,6 @@
 CC = clang         
 CFLAGS = -O3 		
-INC = -I src/include   	
+INC = -I src
 LIB = -L src/lib       
        
 all: 
