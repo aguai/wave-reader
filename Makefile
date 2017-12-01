@@ -1,6 +1,4 @@
-#example 2
-#usage: make main OR make
-CC = clang          #欲使用的C compiler
+CC = clang         
 CFLAGS = -O3 		
 INC = -I src/include   	
 LIB = -L src/lib       
