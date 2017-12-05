@@ -2,11 +2,11 @@
  * Read and parse a wave file
  * http://truelogic.org/wordpress/2015/09/04/parsing-a-wav-file-in-c/
  **/
-#include "wave.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include "wave_header.h"
 #define TRUE 1
 #define FALSE 0
 
@@ -19,7 +19,7 @@ char *seconds_to_time(float seconds);
 
 FILE *ptr;
 char *filename;
-struct HEADER header;
+Header header;
 
 int main(int argc, char **argv) {
   filename = (char *)malloc(sizeof(char) * 1024);
@@ -51,11 +51,8 @@ int main(int argc, char **argv) {
     printf("Error opening file\n");
     exit(1);
   }
-
-  int read = 0;
-
   // read header parts
-
+  int read = 0;
   read = fread(header.riff, sizeof(header.riff), 1, ptr);
   printf("(1-4): %s \n", header.riff);
 
@@ -158,16 +155,13 @@ int main(int argc, char **argv) {
 
   // read each sample from data chunk if PCM
   if (header.format_type == 1) {  // PCM
-    /*
-      //printf("Dump sample data? Y/N?");
-      //char c = 'n';
-      // scanf("%c", &c);
-          */
-    printf("Dumping sample data===\n==============\n\n");
-    char c = 'Y';
-    // char c = 'n';
-    // scanf("%c", &c);
-    if (c == 'Y' || c == 'y') {
+
+    printf("Dump sample data? Y/N?");
+    char c = 'n';
+    scanf("%c", &c);
+        // printf("Dumping sample data===\n==============\n\n");
+        // char c = 'Y';
+        if (c == 'Y' || c == 'y') {
       long i = 0;
       char data_buffer[size_of_each_sample];
       int size_is_correct = TRUE;

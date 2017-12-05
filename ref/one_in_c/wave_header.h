@@ -1,5 +1,5 @@
 // WAVE file header format
-struct HEADER {
+typedef struct HEADER {
   unsigned char riff[4];              // RIFF string
   unsigned int overall_size;          // overall size of file in bytes
   unsigned char wave[4];              // WAVE string
@@ -19,4 +19,4 @@ struct HEADER {
   unsigned char data_chunk_header[4];  // DATA string or FLLR string
   unsigned int data_size;  // NumSamples * NumChannels * BitsPerSample/8 - size
                            // of the next chunk that will be read
-};
+}Header;
