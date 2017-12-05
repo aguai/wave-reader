@@ -1,3 +1,4 @@
+#include <stdint.h>
 typedef struct WAV_RIFF {
     /* chunk "riff" */
     char ChunkID[4];   /* "RIFF" */
