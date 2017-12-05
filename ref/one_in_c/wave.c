@@ -158,9 +158,15 @@ int main(int argc, char **argv) {
 
   // read each sample from data chunk if PCM
   if (header.format_type == 1) {  // PCM
-    printf("Dump sample data? Y/N?");
-    char c = 'n';
-    scanf("%c", &c);
+    /*
+      //printf("Dump sample data? Y/N?");
+      //char c = 'n';
+      // scanf("%c", &c);
+          */
+    printf("Dumping sample data===\n==============\n\n");
+    char c = 'Y';
+    // char c = 'n';
+    // scanf("%c", &c);
     if (c == 'Y' || c == 'y') {
       long i = 0;
       char data_buffer[size_of_each_sample];
