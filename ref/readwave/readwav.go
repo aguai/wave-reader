@@ -25,7 +25,7 @@ type FormatChuck struct {
 }
 type SoundDataChuck struct {
 	ChuckID       [4]byte
-	SoundDataSize []uint32 // not sure
+	SoundDataSize uint32 // not sure
 }
 
 type Wav struct {
@@ -53,8 +53,9 @@ func main() {
 	binary.Read(f, binary.LittleEndian, &Q.FormatChuck.BytePerSec)
 	binary.Read(f, binary.LittleEndian, &Q.FormatChuck.BlockAlign)
 	binary.Read(f, binary.LittleEndian, &Q.FormatChuck.BitDepth)
-	//binary.Read(f, binary.LittleEndian, &Q.FormatChuck.ExtraFormatByte)
+
 	binary.Read(f, binary.BigEndian, &Q.SoundDataChuck.ChuckID)
+	binary.Read(f, binary.LittleEndian, &Q.SoundDataChuck.SoundDataSize)
 	riff := ""
 	for i := range Q.WaveChuck.ChuckID {
 		riff += string(Q.WaveChuck.ChuckID[i])
@@ -78,6 +79,7 @@ func main() {
 	fmt.Printf("WFMT:\t\t\t%s\n", wfmt)
 	fmt.Printf("DATA:\t\t\t%s\n", data)
 	fmt.Printf("WaveChuckDataSize:\t%d\n", Q.WaveChuck.ChuckDataSize)
+	fmt.Printf("SoundDataChuckDataSize:\t%d\n", Q.SoundDataChuck.SoundDataSize)
 	fmt.Printf("BitDepth:\t\t%d\n", Q.FormatChuck.BitDepth)
 	fmt.Printf("Sample Rate:\t%d\n", Q.FormatChuck.SampleRate)
 
