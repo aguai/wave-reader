@@ -2,3 +2,4 @@
 .DS_Store
 fabric8-analytics.log
 old/
+old/*
