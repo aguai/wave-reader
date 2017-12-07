@@ -1,4 +1,4 @@
 .gitignore
 .DS_Store
-build/wavereader
 fabric8-analytics.log
+old/
